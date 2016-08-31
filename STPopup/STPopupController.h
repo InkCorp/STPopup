@@ -132,6 +132,11 @@ typedef NS_ENUM(NSUInteger, STPopupTransitionStyle) {
 @property (nonatomic, assign, readonly) BOOL presented;
 
 /**
+ Indicates if extra padding should be added for iMessage extension toolbar
+ */
+@property (nonatomic, assign) BOOL shouldAddkeyboardPadding;
+
+/**
  Init the popup with root view controller.
  */
 - (instancetype)initWithRootViewController:(UIViewController *)rootViewController;
