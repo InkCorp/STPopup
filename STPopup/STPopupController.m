@@ -28,6 +28,7 @@
 @end
 
 CGFloat const STPopupBottomSheetExtraHeight = 80;
+CGFloat const STPopupKeyboardPadding = 44;
 
 static NSMutableSet *_retainedPopupControllers;
 
@@ -686,7 +687,7 @@ static NSMutableSet *_retainedPopupControllers;
     _containerView.transform = CGAffineTransformIdentity; // Set transform to identity for calculating a correct "minOffsetY"
     
     CGFloat textFieldBottomY = [currentTextInput convertPoint:CGPointZero toView:_containerViewController.view].y + currentTextInput.bounds.size.height;
-    CGFloat keyboardHeight = [_keyboardInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    CGFloat keyboardHeight = (self.shouldAddkeyboardPadding) ? [_keyboardInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height + STPopupKeyboardPadding : [_keyboardInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
     // For iOS 7
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1 &&
